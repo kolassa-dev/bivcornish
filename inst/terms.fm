@@ -1,0 +1,89 @@
+      subroutine bivtail(x1,x2,tail,rho,k111,k112,k122,
+     x    k222,k1111,k1112,k1122,k1222,k2222,nn)
+      double precision rho,k111,k112,k122,k222,
+     x    k1111,k1112,k1122,k1222,k2222,x1,x2,tail(2),rtni,rtn
+c     double precision mratio,pym
+      double precision pb2,p2,px,py,p1c,p2c,pxm
+      integer nn
+      double precision phi2,phibar1,phidens
+c     double precision phibar2
+      rtni=1/sqrt(dble(nn))
+      rtn=sqrt(dble(nn))
+c     pb2=phibar2(rtn*x1,rtn*x2,rho)
+      pb2=tail(2)
+      p2=phi2(rtn*x1,rtn*x2,rho)
+      px=phidens(rtn*x1)
+      py=phidens(rtn*x2)
+      pxm=phibar1(rtn*x1)
+c     pym=phibar1(rtn*x2)
+      p2c=phibar1(rtn*(x2-rho*x1)/sqrt(1.0d0-rho**2))
+      p1c=phibar1(rtn*(x1-rho*x2)/sqrt(1.0d0-rho**2))
+c     mratio=p1c/phidens(rtn*(x1-rho*x2)/sqrt(1-rho**2))
+      tail(1)=
+     -<* Simplify[Normal[univariatetail]]//.Join[krule,erules] *>
+      tail(2)=
+     -<* Simplify[Normal[bivariatetail]]//.Join[krule,erules] *>
+      return
+      end
+c####################################################
+      subroutine bivcorn(x1,x2,x1p,x1pp,x2p,x2pp,rho,k111,k112,k122,
+     x    k222,k1111,k1112,k1122,k1222,k2222,nn,alpha,intflg)
+      double precision x1p,x1pp,x2p,x2pp,rho,k111,k112,k122,k222,
+     x    k1111,k1112,k1122,k1222,k2222,x1,x2,mratio,rtni,rtn,
+     x    alpha(2)
+      double precision pb2,p2,px,py,p1c,p2c,pxm,pym
+      integer nn
+      double precision phi2,phibar1,phidens
+      logical intflg
+c     double precision phibar2
+      rtni=1/sqrt(dble(nn))
+      rtn=sqrt(dble(nn))
+c     pb2=phibar2(rtn*x1,rtn*x2,rho)
+c     pb2=tail(1)
+      pb2=alpha(2)
+      p2=phi2(rtn*x1,rtn*x2,rho)
+      px=phidens(rtn*x1)
+      py=phidens(rtn*x2)
+      pxm=phibar1(rtn*x1)
+      pym=phibar1(rtn*x2)
+      p2c=phibar1(rtn*(x2-rho*x1)/sqrt(1.0d0-rho**2))
+      p1c=phibar1(rtn*(x1-rho*x2)/sqrt(1.0d0-rho**2))
+      mratio=p1c/phidens(rtn*(x1-rho*x2)/sqrt(1-rho**2))
+      alpha(2)=pb2
+      alpha(1)=phibar1(rtn*x1)
+      x1p=
+     -<* (x1f'[0]/.sr1[[1]])/.Join[krule,erules] *>
+      x2p=
+     -<* (x2f'[0]/.sr2[[1]])/.Join[krule,erules] *>
+      x1pp=
+     -<* (x1f''[0]/.sr1[[1]])/.Join[krule,erules] *>
+      x2pp=
+     -<* (x2f''[0]/.sr2[[1]])/.Join[krule,erules] *>
+      return
+      end
+c################################################################
+      double precision function phi2(x1,x2,rho)
+      double precision x1,x2,rho
+      phi2=exp((-x1**2*0.5-x2**2*0.5+rho*x1*x2)/(1.0d0-rho**2))/(
+     x 2.0d0*3.14159265358979)
+      phi2=phi2/sqrt(1.0d0-rho**2)
+      return
+      end
+c################################################################
+c     double precision function phibar2(x1,x2,rho)
+c     double precision x1,x2,rho,bivnor
+c     phibar2=bivnor(-x1,-x2,rho)
+c     return
+c     end
+c################################################################
+      double precision function phibar1(x1)
+      double precision x1
+      phibar1=erfc(x1/dsqrt(2.0d0))/2.0
+      return
+      end
+c################################################################
+      double precision function phidens(x1)
+      double precision x1
+      phidens=exp(-x1**2/2.0d0)/dsqrt(2.0d0*3.14159265358979)
+      return
+      end

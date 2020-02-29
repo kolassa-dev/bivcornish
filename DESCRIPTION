@@ -1,0 +1,14 @@
+Package: bivcornish
+Type: Package
+Title: Bivariate Cornish-Fisher Expansion
+Version: 1.2
+Date: 2018-03-24
+Author: Xinyan Chen and John Kolassa
+Maintainer: John Kolassa <kolassa@stat.rutgers.edu>
+NeedsCompilation: yes
+Description: Calculate and test the bivariate Cornish-Fisher expansion.
+Imports:
+    mvtnorm,zoo
+License: GPL-2
+RoxygenNote: 6.1.1
+Encoding: UTF-8
