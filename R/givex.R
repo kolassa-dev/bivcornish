@@ -8,7 +8,7 @@
 #' @return A two-component vector whose first component is the upper standard normal quantile associated with alpha[1], and whose second component is that one to make the bivariate normal upper tail area alpha[2].
 #' @export
 fun.givex<-function(alpha,rho,expect=NULL,sd=NULL){
-   cat("alpha",alpha,"rho",rho,"\n")
+#  cat("alpha",alpha,"rho",rho,"\n")
    x1<-qnorm(1-alpha[1])
    out<-.Fortran("isecnorm",x1=as.double(x1),x2=as.double(0),targ=as.double(alpha[2]),rho=as.double(rho),efg=as.integer(0),PACKAGE="bivcornish")
    if(!is.null(expect)){
