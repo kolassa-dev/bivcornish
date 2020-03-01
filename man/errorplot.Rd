@@ -23,5 +23,5 @@ Plot quantities representing errors in Cornish-Fisher approximation, relative to
 #Generate Fig 1 of Chen, Kolassa, Seifu, and Zhong.  Next line takes 8 hours.  Uncommented example
 #is not big enough to be useful, but runs quickly.
 # errorplot(testcorn(xv=makebigxv(100),nsamp=500000,nn=1)$tail)
-errorplot(testcorn(xv=makebigxv(10),nsamp=500,nn=1)$tail)
+errorplot(testcorn(xv=makebigxv(10),nsamp=5000,nn=1)$tail)
 }

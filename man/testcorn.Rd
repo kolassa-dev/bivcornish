@@ -4,9 +4,15 @@
 \alias{testcorn}
 \title{Calculate quantities involved in a Cornish-Fisher two-dimensional quantile approximation, for use in assessing relative accuracy of this approximation.}
 \usage{
-testcorn(alpha = c(0.1, 0.05), xv = NULL,
-  cumulants = exponentialcumulants, amat = rbind(c(1, 1, 0), c(0, 1,
-  1)), randf = rexp, nsamp = 50000, nn = 1)
+testcorn(
+  alpha = c(0.1, 0.05),
+  xv = NULL,
+  cumulants = exponentialcumulants,
+  amat = rbind(c(1, 1, 0), c(0, 1, 1)),
+  randf = rexp,
+  nsamp = 50000,
+  nn = 1
+)
 }
 \arguments{
 \item{alpha}{a vector with two components giving the first univariate upper target tail probability, and the second giving the bivariate upper tail probability.}

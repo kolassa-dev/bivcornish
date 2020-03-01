@@ -4,9 +4,15 @@
 \alias{newtest}
 \title{Calculate quantities involved in a Cornish-Fisher two-dimensional quantile approximation, for use in assessing relative accuracy of this approximation.}
 \usage{
-newtest(alpha = c(0.1, 0.05), xv = NULL,
-  cumulants = exponentialcumulants, randf = rexp, nsamp = 50000,
-  nn = 1, amat = rbind(c(1, 1, 0), c(0, 1, 1)))
+newtest(
+  alpha = c(0.1, 0.05),
+  xv = NULL,
+  cumulants = exponentialcumulants,
+  randf = rexp,
+  nsamp = 50000,
+  nn = 1,
+  amat = rbind(c(1, 1, 0), c(0, 1, 1))
+)
 }
 \arguments{
 \item{alpha}{a vector with two components giving the first univariate upper target tail probability, and the second giving the bivariate upper tail probability.}

@@ -8,7 +8,7 @@ Maintainer: John Kolassa <kolassa@stat.rutgers.edu>
 NeedsCompilation: yes
 Description: Calculate and test the bivariate Cornish-Fisher expansion.
 Imports:
-    mvtnorm,zoo
+    mvtnorm
 License: GPL-2
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.1
 Encoding: UTF-8

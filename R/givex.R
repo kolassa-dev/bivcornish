@@ -6,6 +6,7 @@
 #' @param sd the two-component vector of marginal standard deviations of the bivariate distribution, if not 1.
 #'
 #' @return A two-component vector whose first component is the upper standard normal quantile associated with alpha[1], and whose second component is that one to make the bivariate normal upper tail area alpha[2].
+#' @importFrom stats qnorm
 #' @export
 fun.givex<-function(alpha,rho,expect=NULL,sd=NULL){
 #  cat("alpha",alpha,"rho",rho,"\n")

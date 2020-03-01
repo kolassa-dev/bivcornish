@@ -11,6 +11,7 @@
 #' @return A list with two components:
 #'    An array with three dimensions, the first indicating quantities for the first dimension of the sample space, and its marginal distribution, and the second representing the second component and the joint distribution.  The second represents 1. Target upper probability, 2. The associated bivariate normal quantile, 3. The Edgeworth tail approximation for the normal quantile, 4. The Monte Carlo tail approximation for the normal quantile, 5. The Cornish-Fisher quantile, 6. The Monte Carlo tail approximation for the Cornish-Fisher quantile, 7. mean, 8. Standard deviations, 9. quantiles.
 #'    The Monte Carlo sample drawn for comparison purposes.
+#' @importFrom stats rexp
 #' @export
 testcorn<-function(alpha=c(.10,.05),xv=NULL,cumulants=exponentialcumulants,amat=rbind(c(1,1,0),c(0,1,1)),randf=rexp,nsamp=50000,nn=1){
    klist<-if(is.function(cumulants)) cumulants(amat=amat) else cumulants
