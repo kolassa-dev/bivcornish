@@ -6,7 +6,7 @@ Date: 2018-03-24
 Author: Xinyan Chen and John Kolassa
 Maintainer: John Kolassa <kolassa@stat.rutgers.edu>
 NeedsCompilation: yes
-Description: Calculate and test the bivariate Cornish-Fisher expansion.
+Description: Calculate and test the bivariate Cornish-Fisher expansion.  Supported by grant NSF DMS 1712839.
 Imports:
     mvtnorm
 License: GPL-2
